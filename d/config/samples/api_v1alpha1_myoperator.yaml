@@ -1,0 +1,17 @@
+apiVersion: api.swastik.online/v1alpha1
+kind: Myoperator
+metadata:
+  labels:
+    app.kubernetes.io/name: myoperator
+    app.kubernetes.io/instance: myoperator-sample
+    app.kubernetes.io/part-of: d
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: d
+  name: myoperator-sample
+spec:
+  start: 1
+  end: 24
+  replicas: 5
+  deployments:
+    - name: nginx
+      namespace: default

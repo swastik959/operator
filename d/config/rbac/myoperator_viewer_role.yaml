@@ -1,0 +1,27 @@
+# permissions for end users to view myoperators.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: myoperator-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: d
+    app.kubernetes.io/part-of: d
+    app.kubernetes.io/managed-by: kustomize
+  name: myoperator-viewer-role
+rules:
+- apiGroups:
+  - api.swastik.online
+  resources:
+  - myoperators
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - api.swastik.online
+  resources:
+  - myoperators/status
+  verbs:
+  - get
